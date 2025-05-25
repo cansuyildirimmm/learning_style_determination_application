@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 İşte Senin Öğrenme Haritan! 🗺️</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container results-container">
+        <h1><span class="emoji-result-title">🏆</span> Öğrenme Süper Gücün Açığa Çıktı! <span class="emoji-result-title">💡</span></h1>
+
+        <h2>{{ learning_style_info.name }}</h2>
+        <p class="style-description">{{ learning_style_info.description }}</p>
+
+        {% if error %}
+            <div class="error-message">
+                <strong>Oops! Bir şeyler ters gitti:</strong> {{ error }}
+            </div>
+        {% elif recommendations %}
+            <h3><span class="emoji-recommend">✨</span> Yapay Zekadan Sana Özel Büyülü İpuçları:</h3>
+            <ul>
+                {% for tip in recommendations %}
+                <li>{{ tip | safe }}</li> {# Emojilerin ve HTML'in doğru görünmesi için safe filtresi #}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Şu an için özel bir öneri bulunamadı. Ama endişelenme, keşfetmeye devam et!</p>
+        {% endif %}
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="{{ url_for('index') }}" class="btn-try-again">🔁 Maceraya Tekrar Başla!</a>
+        </div>
+    </div>
+    <p class="footer">🔮 Yapay Zeka Destekli Öğrenme Stili Rehberi 🔮</p>
+</body>
+</html>

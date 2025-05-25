@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Öğrenme Stili Macerası 🚀</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji-title">✨</span> Öğrenme Tarzını Keşfet! <span class="emoji-title">🧭</span></h1>
+        <p class="intro">Selam maceraperest! Aşağıdaki sihirli soruları yanıtla, sana en uygun öğrenme yolculuğunu ve yapay zekadan harika ipuçlarını ortaya çıkaralım!</p>
+
+        <form id="quizForm" action="{{ url_for('submit_quiz') }}" method="post">
+            {% for q_id, q_data in questions.items() %}
+            <div class="question-block">
+                <h3><span class="emoji-question">{{ q_data.emoji }}</span> {{ q_data.text }}</h3>
+                <div class="options">
+                    {% for option_key, option_data in q_data.options.items() %}
+                    <label>
+                        <input type="radio" name="{{ q_id }}" value="{{ option_key }}" required>
+                        {{ option_data.text }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit">Sonuçları Göster! 🌟</button>
+        </form>
+        <div id="loader" class="loader" style="display: none;"></div>
+    </div>
+    <p class="footer">🔮 Yapay Zeka Destekli Öğrenme Stili Rehberi 🔮</p>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function() {
+            document.getElementById('loader').style.display = 'block';
+            document.querySelector('button[type="submit"]').style.display = 'none';
+            document.querySelector('p.intro').style.display = 'none'; // Giriş metnini de gizle
+        });
+    </script>
+</body>
+</html>

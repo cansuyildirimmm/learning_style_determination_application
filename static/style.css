@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #6a11cb; /* Mor */
+    --secondary-color: #2575fc; /* Mavi */
+    --accent-color: #ff6f91; /* Pembe/Koral */
+    --text-color: #333;
+    --light-text-color: #f8f9fa;
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --input-bg: #e9ecef;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--card-bg);
+    padding: 35px 45px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2.8em;
+    font-weight: 800;
+}
+
+h1 .emoji-title {
+    font-size: 1em; /* H1 ile aynı boyutta olsun */
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+p.intro {
+    color: #555;
+    font-size: 1.15em;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.question-block {
+    background-color: #fdfdff; /* Hafif açık kart rengi */
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-block:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.question-block h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    font-size: 1.6em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.question-block h3 .emoji-question {
+    font-size: 1.5em; /* Emoji boyutu */
+    margin-right: 15px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 1.05em;
+    color: #495057;
+}
+
+.options label:hover {
+    background-color: #d1d8e0;
+    transform: translateX(5px);
+}
+
+.options input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.3); /* Radio button büyüklüğü */
+    accent-color: var(--accent-color);
+}
+
+button[type="submit"], .btn-try-again {
+    background: linear-gradient(45deg, var(--accent-color), #ff8c9a);
+    color: var(--light-text-color);
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 50px; /* Yuvarlak buton */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 25px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 111, 145, 0.4);
+}
+
+button[type="submit"]:hover, .btn-try-again:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 111, 145, 0.6);
+}
+
+.results-container {
+    text-align: left;
+}
+
+.results-container h2 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.results-container h2 .emoji-result-title {
+    font-size: 1em;
+    margin: 0 10px;
+}
+
+.results-container h3 {
+    color: var(--secondary-color);
+    margin-top: 30px;
+    font-size: 1.7em;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.results-container h3 .emoji-recommend {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.results-container p.style-description {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #454545;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.results-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.results-container ul li {
+    background-color: #fdfdff;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: var(--text-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.results-container ul li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid var(--accent-color);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1.2s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    opacity: 0.8;
+}
